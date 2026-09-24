@@ -63,7 +63,7 @@ int main(){
     char buffer[MAX_LENGTH_STRING];
     printf("Input:\n");
     while (1){
-        if (strlen(buffer)==MAX_LENGTH_STRING-1) flag_long_string=1;
+        if (strlen(buffer)==MAX_LENGTH_STRING-1 && buffer[MAX_LENGTH_STRING-2]!='\n') flag_long_string=1;
         else flag_long_string=0;
         if (fgets(buffer, sizeof(buffer), stdin)==NULL){
             fprintf(stderr, "EOF\n");
