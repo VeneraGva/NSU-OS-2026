@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_LENGTH_STRING 10
+#define MAX_LENGTH_STRING 1024
 
 typedef struct node{
     char *string;
