@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_LENGTH_STRING 1024
+#define MAX_LENGTH_STRING 10
 
 typedef struct node{
     char *string;
@@ -59,15 +59,18 @@ void free_list(node *head){
 
 int main(){
     node *head=NULL;
+    int flag_long_string=0;
     char buffer[MAX_LENGTH_STRING];
     printf("Input:\n");
     while (1){
+        if (strlen(buffer)==MAX_LENGTH_STRING-1) flag_long_string=1;
+        else flag_long_string=0;
         if (fgets(buffer, sizeof(buffer), stdin)==NULL){
             fprintf(stderr, "EOF\n");
             free_list(head);
             exit(1);
         }
-        if (buffer[0]=='.') break;
+        if (buffer[0]=='.' && flag_long_string==0 && strlen(buffer)==2) break;
         append_node(&head, buffer);
     }
     printf("Output:\n");
