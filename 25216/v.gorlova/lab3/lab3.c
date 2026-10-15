@@ -20,6 +20,8 @@ int main(){
         printf("File opened successfully\n");
         fclose(fin);
     }
+    
+    setuid(ruid);
 
     printf("\nAfter setuid:\n");
     ruid = getuid();
